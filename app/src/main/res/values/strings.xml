@@ -7,4 +7,22 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+
+
+    <string name="instructions">Add a city to keep track of</string>
+    <string name="input_hint">City</string>
+    <string name="button_text">Add City</string>
+    <string name="AddCity">Please enter a city</string>
+    <string name="dots">…</string>
+    <string name="instructions2">Check the weather in:</string>
+    <string name="Check">Check</string>
+    <string name="city_not_found">The city was not found</string>
+    <string name="enter_a_city">Please enter a city!</string>
+    <string name="SevenDayCheck">Check Week</string>
+    <string name="city_not_found_text">Could not find the given city</string>
+    <string name="minus">-</string>
+    <string name="ok">OK</string>
+    <string name="hint_word">enter a city</string>
+    <string name="save">save</string>
+    <string name="empty_not_saved">no city given</string>
 </resources>

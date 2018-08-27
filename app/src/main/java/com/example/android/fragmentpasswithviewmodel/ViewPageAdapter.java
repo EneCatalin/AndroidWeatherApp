@@ -17,13 +17,15 @@ public class ViewPageAdapter extends FragmentPagerAdapter {
             fragment = new FragmentOne();
         } else if (position == 1) {
             fragment = new FragmentTwo();
+        } else if(position == 2){
+            fragment = new FragmentThree();
         }
         return fragment;
     }
 
     @Override
     public int getCount() {
-        return 2;
+        return 3;
     }
 
     @Override
@@ -33,6 +35,8 @@ public class ViewPageAdapter extends FragmentPagerAdapter {
             title = "Tab-1";
         } else if (position == 1) {
             title = "Tab-2";
+        } else if(position == 2){
+            title ="Tab-3";
         }
         return title;
     }

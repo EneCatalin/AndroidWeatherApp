@@ -1,5 +1,6 @@
 package com.example.android.fragmentpasswithviewmodel;
 
+
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -12,9 +13,7 @@ import android.widget.TextView;
 
 import com.example.android.fragmentpasswithviewmodel.vm.SharedViewModel;
 
-
-public class FragmentTwo extends Fragment {
-
+public class FragmentThree extends Fragment {
     TextView txtData;
 
     @Nullable
@@ -22,7 +21,7 @@ public class FragmentTwo extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(
-                R.layout.fragment_two, container, false);
+                R.layout.fragment_three, container, false);
         return rootView;
     }
     @Override
@@ -31,11 +30,10 @@ public class FragmentTwo extends Fragment {
         SharedViewModel model = ViewModelProviders.of(getActivity()).get(SharedViewModel.class);
 
         model.getCity().observe(this, item -> {
-            txtData = (TextView)view.findViewById(R.id.txtData);
+            txtData = (TextView)view.findViewById(R.id.cityData);
             txtData.setText(item);
             Log.d("PRIMIT", item);
 
         });
     }
 }
-
