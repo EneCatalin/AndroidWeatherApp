@@ -19,13 +19,15 @@ public class ViewPageAdapter extends FragmentPagerAdapter {
             fragment = new FragmentTwo();
         } else if(position == 2){
             fragment = new FragmentThree();
+        } else if(position == 3){
+            fragment= new FragmentWeek();
         }
         return fragment;
     }
 
     @Override
     public int getCount() {
-        return 3;
+        return 4;
     }
 
     @Override
@@ -37,6 +39,8 @@ public class ViewPageAdapter extends FragmentPagerAdapter {
             title = "Tab-2";
         } else if(position == 2){
             title ="Tab-3";
+        } else if(position == 3){
+            title = "Tab-4";
         }
         return title;
     }

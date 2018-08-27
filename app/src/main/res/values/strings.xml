@@ -8,7 +8,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
-
     <string name="instructions">Add a city to keep track of</string>
     <string name="input_hint">City</string>
     <string name="button_text">Add City</string>
