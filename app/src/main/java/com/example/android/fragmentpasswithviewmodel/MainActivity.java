@@ -6,6 +6,8 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
+import com.example.android.fragmentpasswithviewmodel.adapter.ViewPageAdapter;
+
 public class MainActivity extends AppCompatActivity {
 
 

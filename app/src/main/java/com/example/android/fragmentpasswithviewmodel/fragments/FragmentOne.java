@@ -1,4 +1,4 @@
-package com.example.android.fragmentpasswithviewmodel;
+package com.example.android.fragmentpasswithviewmodel.fragments;
 
 
 import android.arch.lifecycle.ViewModelProviders;
@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.android.fragmentpasswithviewmodel.R;
 import com.example.android.fragmentpasswithviewmodel.vm.SharedViewModel;
 
 public class FragmentOne extends Fragment {

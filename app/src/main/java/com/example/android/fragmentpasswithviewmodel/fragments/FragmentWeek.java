@@ -1,4 +1,4 @@
-package com.example.android.fragmentpasswithviewmodel;
+package com.example.android.fragmentpasswithviewmodel.fragments;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.example.android.fragmentpasswithviewmodel.R;
 import com.example.android.fragmentpasswithviewmodel.adapter.week.WeatherAdapter;
 import com.example.android.fragmentpasswithviewmodel.model.week.WeatherDataList;
 import com.example.android.fragmentpasswithviewmodel.model.week.WeatherList;

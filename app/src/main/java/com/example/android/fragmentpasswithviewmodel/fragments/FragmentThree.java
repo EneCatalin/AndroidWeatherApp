@@ -1,4 +1,4 @@
-package com.example.android.fragmentpasswithviewmodel;
+package com.example.android.fragmentpasswithviewmodel.fragments;
 
 
 import android.arch.lifecycle.ViewModelProviders;
@@ -16,6 +16,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.android.fragmentpasswithviewmodel.MainActivity;
+import com.example.android.fragmentpasswithviewmodel.R;
 import com.example.android.fragmentpasswithviewmodel.model.day.DayLongWeather;
 import com.example.android.fragmentpasswithviewmodel.network.GetWeatherDataService;
 import com.example.android.fragmentpasswithviewmodel.network.RetrofitInstance;

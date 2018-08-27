@@ -1,8 +1,13 @@
-package com.example.android.fragmentpasswithviewmodel;
+package com.example.android.fragmentpasswithviewmodel.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+
+import com.example.android.fragmentpasswithviewmodel.fragments.FragmentOne;
+import com.example.android.fragmentpasswithviewmodel.fragments.FragmentThree;
+import com.example.android.fragmentpasswithviewmodel.fragments.FragmentTwo;
+import com.example.android.fragmentpasswithviewmodel.fragments.FragmentWeek;
 
 public class ViewPageAdapter extends FragmentPagerAdapter {
 
