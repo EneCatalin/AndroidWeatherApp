@@ -64,10 +64,6 @@ public class FragmentThree extends Fragment {
 
 
 
-
-
-
-
             // Get the intent that launched this activity, and the message in
             // the intent extra.
 

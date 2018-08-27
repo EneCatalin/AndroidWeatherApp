@@ -4,17 +4,35 @@ import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.android.fragmentpasswithviewmodel.adapter.week.WeatherAdapter;
+import com.example.android.fragmentpasswithviewmodel.model.week.WeatherDataList;
+import com.example.android.fragmentpasswithviewmodel.model.week.WeatherList;
+import com.example.android.fragmentpasswithviewmodel.network.GetWeatherDataService;
+import com.example.android.fragmentpasswithviewmodel.network.RetrofitInstance;
 import com.example.android.fragmentpasswithviewmodel.vm.SharedViewModel;
+
+import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public class FragmentWeek  extends Fragment {
 
-    TextView txtData;
+
+    private WeatherAdapter adapter;
+    private RecyclerView recyclerView;
+    GetWeatherDataService service = RetrofitInstance.getRetrofitInstance().create(GetWeatherDataService.class);
+
 
     @Nullable
     @Override
@@ -29,12 +47,54 @@ public class FragmentWeek  extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         SharedViewModel model = ViewModelProviders.of(getActivity()).get(SharedViewModel.class);
 
+
         model.getCity().observe(this, item -> {
-            txtData = (TextView)view.findViewById(R.id.weather_data_week);
-            txtData.setText(item);
-//            Log.d("PRIMIT", item);
+            String cityName = item;
+
+            /*Call the method with parameter in the interface to get the employee data*/
+            Call<WeatherDataList> call = service.getWeekWeatherData(cityName, "metric", "7", GetWeatherDataService.API_KEY);
+
+            /*Log the URL called*/
+            Log.wtf("URL Called", call.request().url() + "");
+
+
+            call.enqueue(new Callback<WeatherDataList>() {
+                @Override
+                public void onResponse(Call<WeatherDataList> call, Response<WeatherDataList> response) {
+                    assert response.body() != null;
+                    if (response.code() == 200 && response.body().getCod().equals("200")) {
+                        Log.d("ENTERED IF", response.body().getCod());
+                        generateWeatherList(response.body().getWeatherArrayList());
+                    } else {
+                        Log.d("ENTERED ELSE", response.body().getCod());
+                        Toast.makeText(getContext(), response.body().getCod(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<WeatherDataList> call, Throwable t) {
+                    Toast.makeText(getContext(), "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();
+                }
+            });
+
 
         });
+
+
+
     }
+
+    private void generateWeatherList(ArrayList<WeatherList> weatherDataList) {
+        recyclerView = (RecyclerView) getView().findViewById(R.id.seven_day_recycler);
+
+        adapter = new WeatherAdapter(weatherDataList);
+
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
+
+        recyclerView.setLayoutManager(layoutManager);
+
+        recyclerView.setAdapter(adapter);
+    }
+
 }
 
