@@ -31,8 +31,8 @@ public class Wind {
         this.deg = deg;
     }
 
-    public Float getSpeed() {
-        return speed;
+    public int getSpeed() {
+        return Math.round(speed);
     }
 
     public void setSpeed(Float speed) {
@@ -45,7 +45,7 @@ public class Wind {
     }
 
     public Integer getDeg() {
-        return deg;
+        return Math.round(deg);
     }
 
     public void setDeg(Integer deg) {

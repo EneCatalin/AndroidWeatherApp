@@ -5,7 +5,6 @@ import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,7 +34,7 @@ public class FragmentOne extends Fragment {
         buttonX.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v)
             {
-                Log.d("TRIMIS",inData.getText().toString());
+//                Log.d("TRIMIS",inData.getText().toString());
                 model.sendCity(inData.getText().toString());
                 //DO SOMETHING! {RUN SOME FUNCTION ... DO CHECKS... ETC}
             }
