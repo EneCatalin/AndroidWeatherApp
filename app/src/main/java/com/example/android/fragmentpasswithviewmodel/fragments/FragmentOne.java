@@ -2,12 +2,14 @@ package com.example.android.fragmentpasswithviewmodel.fragments;
 
 
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -38,6 +40,11 @@ public class FragmentOne extends Fragment {
 //                Log.d("TRIMIS",inData.getText().toString());
                 model.sendCity(inData.getText().toString());
                 //DO SOMETHING! {RUN SOME FUNCTION ... DO CHECKS... ETC}
+
+                /**HIDES THE KEYBOARD**/
+                InputMethodManager inputManager = (InputMethodManager)
+                        getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                inputManager.toggleSoftInput(0, 0);
             }
         });
 
