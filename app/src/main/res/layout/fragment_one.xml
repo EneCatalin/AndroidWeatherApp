@@ -3,6 +3,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
     android:fillViewport="true">
 
     <RelativeLayout
@@ -14,7 +15,7 @@
             android:id="@+id/inMessage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/btnPassData"
+            android:layout_below="@id/btnPassData"
             android:layout_margin="16dp"
             android:hint="Enter here" />
 
@@ -22,9 +23,17 @@
             android:id="@+id/btnPassData"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
             android:text="PASS DATA TO FRAGMENT TWO" />
 
-
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="16dp"
+            tools:listitem="@layout/item_city_row"
+            android:layout_below="@id/inMessage"
+            />
     </RelativeLayout>
 </ScrollView>
