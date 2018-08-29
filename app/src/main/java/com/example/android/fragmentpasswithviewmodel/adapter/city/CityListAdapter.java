@@ -2,7 +2,6 @@ package com.example.android.fragmentpasswithviewmodel.adapter.city;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,7 +40,6 @@ public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.CityVi
         }
         holder.selectionState.setChecked(lastSelectedCity.equals((String) holder.cityItemView.getText()));
 
-        Log.d("PositionIS", String.valueOf(position));
     }
 
     public void setCities(List<City> words){
@@ -75,8 +73,7 @@ public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.CityVi
                 public void onClick(View v) {
                     lastSelectedCity=cityItemView.getText().toString();
                     notifyDataSetChanged();
-
-                    Log.d("REACHED", "onClick");
+//                    Log.d("REACHED", "onClick");
 
                 }
             });
@@ -91,3 +88,4 @@ public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.CityVi
 
 
 }
+//
