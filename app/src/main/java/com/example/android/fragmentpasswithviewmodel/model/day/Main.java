@@ -60,7 +60,7 @@ public class Main {
     }
 
     public Integer getPressure() {
-        return pressure;
+        return  Math.round(pressure);
     }
 
     public void setPressure(Integer pressure) {
