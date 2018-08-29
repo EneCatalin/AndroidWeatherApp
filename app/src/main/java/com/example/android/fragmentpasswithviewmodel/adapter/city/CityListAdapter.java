@@ -13,8 +13,7 @@ import com.example.android.fragmentpasswithviewmodel.model.city.City;
 
 import java.util.List;
 
-public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.CityViewHolder> {
-
+public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.CityViewHolder> { ;
     private String lastSelectedCity="";
 
     private final LayoutInflater mInflater;
@@ -28,6 +27,8 @@ public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.CityVi
         return new CityViewHolder(itemView);
     }
 
+
+
     @Override
     public void onBindViewHolder(CityViewHolder holder, int position) {
         if (mCities != null) {
@@ -39,6 +40,7 @@ public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.CityVi
             holder.cityItemView.setText("No City");
         }
         holder.selectionState.setChecked(lastSelectedCity.equals((String) holder.cityItemView.getText()));
+
 
     }
 
@@ -62,6 +64,7 @@ public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.CityVi
         //THIS USED TO BE private FIANAL
         private  TextView cityItemView;
 
+
         private CityViewHolder(View itemView) {
             super(itemView);
             cityItemView = itemView.findViewById(R.id.CityName);
@@ -73,10 +76,10 @@ public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.CityVi
                 public void onClick(View v) {
                     lastSelectedCity=cityItemView.getText().toString();
                     notifyDataSetChanged();
-//                    Log.d("REACHED", "onClick");
 
                 }
             });
+
 
         }
     }
