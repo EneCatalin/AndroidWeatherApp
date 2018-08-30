@@ -10,6 +10,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -60,13 +61,17 @@ public class FragmentOne extends Fragment {
 
 
 
+        /**checks if any cities are added/deleted*/
         mCityViewModel.getAllcities().observe(this, new Observer<List<City>>() {
             @Override
             public void onChanged(@Nullable final List<City> words) {
                 // Update the cached copy of the words in the adapter.
                 adapter.setCities(words);
+
             }
         });
+
+
 
 // Add the functionality to swipe items in the
         // recycler view to delete that item
@@ -92,8 +97,17 @@ public class FragmentOne extends Fragment {
 
                         // Delete the word
                         mCityViewModel.deleteWord(mCity);
+                        onClick(viewHolder);
                     }
 
+
+                    public void onClick(RecyclerView.ViewHolder viewHolder) {
+                        int position = viewHolder.getAdapterPosition();
+                        City mCity = adapter.getCityAtPosition(position);
+                        Toast.makeText(getContext(), "Deleting " +
+                                mCity.getCity(), Toast.LENGTH_LONG).show();
+                        Log.d("GOThere", mCity.getCity());
+                    }
 
                 });
 
@@ -119,7 +133,6 @@ public class FragmentOne extends Fragment {
                         getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
                 inputManager.toggleSoftInput(0, 0);
                 adapter.notifyDataSetChanged();
-
 
 
 

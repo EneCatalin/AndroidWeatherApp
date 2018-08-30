@@ -2,6 +2,7 @@ package com.example.android.fragmentpasswithviewmodel.adapter.city;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,16 +31,45 @@ public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.CityVi
 
 
     @Override
-    public void onBindViewHolder(CityViewHolder holder, int position) {
+    public void onBindViewHolder(CityViewHolder holder,  int position) {
+        holder.cityItemView.setClickable(false);
+
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // write your code here
+                Log.d("ClickedClicked", "this "+position);
+            }
+
+        });
+
+        holder.selectionState.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Log.d("ClickedClicked111","that "+position);
+            }
+        });
+
+        holder.deleteCity.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Log.d("ClickedClicked222","those? "+position);
+            }
+        });
+
+
+
         if (mCities != null) {
             City current = mCities.get(position);
             holder.cityItemView.setText(current.getCity());
+//            holder.selectionState.setChecked(lastSelectedCity.equals((String) holder.cityItemView.getText()));
 
         } else {
             // Covers the case of data not being ready yet.
             holder.cityItemView.setText("No City");
         }
-        holder.selectionState.setChecked(lastSelectedCity.equals((String) holder.cityItemView.getText()));
 
 
     }
@@ -63,22 +93,22 @@ public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.CityVi
 
         //THIS USED TO BE private FIANAL
         private  TextView cityItemView;
-
+        private TextView deleteCity;
 
         private CityViewHolder(View itemView) {
             super(itemView);
             cityItemView = itemView.findViewById(R.id.CityName);
             selectionState = (RadioButton) itemView.findViewById(R.id.city_status_radio_btn);
+            deleteCity=itemView.findViewById(R.id.deleteCity);
 
-
-            selectionState.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    lastSelectedCity=cityItemView.getText().toString();
-                    notifyDataSetChanged();
-
-                }
-            });
+//            selectionState.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    lastSelectedCity=cityItemView.getText().toString();
+//                    notifyDataSetChanged();
+//
+//                }
+//            });
 
 
         }

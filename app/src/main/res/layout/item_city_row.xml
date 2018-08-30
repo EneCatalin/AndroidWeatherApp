@@ -22,6 +22,7 @@
             />
 
         <TextView
+            android:clickable="false"
             android:id="@+id/CityName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -29,12 +30,12 @@
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:layout_marginStart="100dp"
-            android:layout_marginLeft="100dp"
+            android:layout_marginLeft="10dp"
             android:text="Testing"
             android:textSize="26sp" />
 
         <TextView
-            android:id="@+id/citySelected"
+            android:id="@+id/deleteCity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
@@ -44,7 +45,8 @@
             android:layout_marginRight="22dp"
             android:gravity="end"
             android:text="X"
-            android:textSize="26sp" />
+            android:textSize="26sp"
+            />
 
 
     </RelativeLayout>
