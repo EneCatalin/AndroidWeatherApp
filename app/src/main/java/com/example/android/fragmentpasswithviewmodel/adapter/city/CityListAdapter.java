@@ -62,6 +62,7 @@ public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.CityVi
                 Log.d("ClickedClicked111","that "+position);
 
                 lastSelectedCity=holder.cityItemView.getText().toString();
+                Log.d("CheckedCity",lastSelectedCity=holder.cityItemView.getText().toString());
                 notifyDataSetChanged();
             }
         });
@@ -75,7 +76,10 @@ public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.CityVi
             // Covers the case of data not being ready yet.
             holder.cityItemView.setText("No City");
         }
-        /**need this to uncheck the city radios*/
+        /**need this to uncheck the city radios
+         *  since only one radio button is allowed to be selected,
+         this condition un-checks previous selections
+         WHY though ???*/
         holder.selectionState.setChecked(lastSelectedCity.equals((String) holder.cityItemView.getText()));
 
 
