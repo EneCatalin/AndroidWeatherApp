@@ -14,7 +14,8 @@ import com.example.android.fragmentpasswithviewmodel.model.city.City;
 
 import java.util.List;
 
-public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.CityViewHolder> { ;
+public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.CityViewHolder> {
+
     private String lastSelectedCity="";
 
     private final LayoutInflater mInflater;
@@ -28,13 +29,13 @@ public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.CityVi
         return new CityViewHolder(itemView);
     }
 
-
-
     @Override
-    public void onBindViewHolder(CityViewHolder holder,  int position) {
-        holder.cityItemView.setClickable(false);
+    public void onBindViewHolder(CityViewHolder holder, int position) {
 
 
+        /**Ran into a weird bug so I had to implement all onClickListeners
+         * otherwise one would grow and take over the ones without a listener
+         * no idea why, just let this be**/
         holder.itemView.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -45,12 +46,6 @@ public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.CityVi
 
         });
 
-        holder.selectionState.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                Log.d("ClickedClicked111","that "+position);
-            }
-        });
 
         holder.deleteCity.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -59,19 +54,32 @@ public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.CityVi
             }
         });
 
+        /**Keep it here or in the viewholder. Careful with this it can break the
+         * city checked thingy**/
+        holder.selectionState.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Log.d("ClickedClicked111","that "+position);
+
+                lastSelectedCity=holder.cityItemView.getText().toString();
+                notifyDataSetChanged();
+            }
+        });
 
 
         if (mCities != null) {
             City current = mCities.get(position);
             holder.cityItemView.setText(current.getCity());
-//            holder.selectionState.setChecked(lastSelectedCity.equals((String) holder.cityItemView.getText()));
 
         } else {
             // Covers the case of data not being ready yet.
             holder.cityItemView.setText("No City");
         }
+        /**need this to uncheck the city radios*/
+        holder.selectionState.setChecked(lastSelectedCity.equals((String) holder.cityItemView.getText()));
 
 
+        Log.d("PositionIS", String.valueOf(position));
     }
 
     public void setCities(List<City> words){
@@ -90,10 +98,10 @@ public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.CityVi
 
     class CityViewHolder extends RecyclerView.ViewHolder {
         public RadioButton selectionState;
+        private TextView deleteCity;
 
         //THIS USED TO BE private FIANAL
         private  TextView cityItemView;
-        private TextView deleteCity;
 
         private CityViewHolder(View itemView) {
             super(itemView);
@@ -101,6 +109,8 @@ public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.CityVi
             selectionState = (RadioButton) itemView.findViewById(R.id.city_status_radio_btn);
             deleteCity=itemView.findViewById(R.id.deleteCity);
 
+
+            /**city radio related, NO IDEA how it works atm, please don't delete again**/
 //            selectionState.setOnClickListener(new View.OnClickListener() {
 //                @Override
 //                public void onClick(View v) {
@@ -109,7 +119,6 @@ public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.CityVi
 //
 //                }
 //            });
-
 
         }
     }
@@ -121,4 +130,3 @@ public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.CityVi
 
 
 }
-//
