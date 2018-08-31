@@ -11,22 +11,29 @@ import java.util.List;
 
 public class CityRepository {
 
+    /**Define cities Dao*/
     private CityDao mCityDao;
+    /**Live Data of List of all cities*/
     private LiveData<List<City>> mAllCities;
 
+    /**City repository*/
     public CityRepository(Application application) {
         CityRoomDatabase db = CityRoomDatabase.getDatabase(application);
+        /**init Cities Dao*/
         mCityDao = db.cityDao();
+        /**get all cities*/
         mAllCities = mCityDao.getAllCities();
     }
+    /**method to get all cities*/
     public LiveData<List<City>> getAllCities() {
         return mAllCities;
     }
-
+    /**method to add a city*/
     public void insert (City city) {
         new insertAsyncTask(mCityDao).execute(city);
     }
 
+    /**Async task to add a city*/
     private static class insertAsyncTask extends AsyncTask<City, Void, Void> {
 
         private CityDao mAsyncTaskDao;
@@ -42,7 +49,7 @@ public class CityRepository {
         }
     }
 
-
+    /**Async task to delete all cities*/
     private static class deleteAllCitiesAsyncTask extends AsyncTask<Void, Void, Void> {
         private CityDao mAsyncTaskDao;
 
@@ -57,11 +64,12 @@ public class CityRepository {
         }
     }
 
+    /**method to delete all cities*/
     public void deleteAll()  {
         new deleteAllCitiesAsyncTask(mCityDao).execute();
     }
 
-
+    /**Async task to delete a city*/
     private static class deleteCityAsyncTask extends AsyncTask<City, Void, Void> {
         private CityDao mAsyncTaskDao;
 
@@ -76,6 +84,7 @@ public class CityRepository {
         }
     }
 
+    /**method to delete a city*/
     public void deleteCity(City city) {
         new deleteCityAsyncTask(mCityDao).execute(city);
     }

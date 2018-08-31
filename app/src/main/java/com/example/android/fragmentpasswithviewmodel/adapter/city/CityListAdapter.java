@@ -16,6 +16,7 @@ import java.util.List;
 
 public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.CityViewHolder> {
 
+
     private String lastSelectedCity="";
 
     private final LayoutInflater mInflater;
@@ -52,6 +53,7 @@ public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.CityVi
             public void onClick(View v) {
                 Log.d("ClickedClicked222","those? "+position);
             }
+
         });
 
         /**Keep it here or in the viewholder. Careful with this it can break the

@@ -11,7 +11,7 @@ public class Main {
     private Float temp;
     @SerializedName("pressure")
     @Expose
-    private Integer pressure;
+    private Float pressure;
     @SerializedName("humidity")
     @Expose
     private Integer humidity;
@@ -37,7 +37,7 @@ public class Main {
      * @param temp
      * @param tempMin
      */
-    public Main(Float temp, Integer pressure, Integer humidity, Float tempMin, Float tempMax) {
+    public Main(Float temp, Float pressure, Integer humidity, Float tempMin, Float tempMax) {
         super();
         this.temp = temp;
         this.pressure = pressure;
@@ -46,7 +46,7 @@ public class Main {
         this.tempMax = tempMax;
     }
 
-    public int getTemp() {
+    public Integer getTemp() {
         return Math.round(temp);
     }
 
@@ -63,11 +63,11 @@ public class Main {
         return  Math.round(pressure);
     }
 
-    public void setPressure(Integer pressure) {
+    public void setPressure(Float pressure) {
         this.pressure = pressure;
     }
 
-    public Main withPressure(Integer pressure) {
+    public Main withPressure(Float pressure) {
         this.pressure = pressure;
         return this;
     }
