@@ -19,20 +19,34 @@ public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.CityVi
 
     private String lastSelectedCity="";
 
+    /**Get layout inflater*/
     private final LayoutInflater mInflater;
     private List<City> mCities; // Cached copy of words
 
-    public CityListAdapter(Context context) { mInflater = LayoutInflater.from(context); }
+    public CityListAdapter(Context context) {
+        mInflater = LayoutInflater.from(context);
+    }
 
     @Override
     public CityViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = mInflater.inflate(R.layout.item_city_row, parent, false);
+        /**return city view holder and pass row inside*/
         return new CityViewHolder(itemView);
     }
 
     @Override
     public void onBindViewHolder(CityViewHolder holder, int position) {
 
+
+        if (mCities != null) {
+            /**Get current city*/
+            City current = mCities.get(position);
+            holder.cityItemView.setText(current.getCity());
+
+        } else {
+            // Covers the case of data not being ready yet.
+            holder.cityItemView.setText("No City");
+        }
 
         /**Ran into a weird bug so I had to implement all onClickListeners
          * otherwise one would grow and take over the ones without a listener
@@ -70,14 +84,7 @@ public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.CityVi
         });
 
 
-        if (mCities != null) {
-            City current = mCities.get(position);
-            holder.cityItemView.setText(current.getCity());
 
-        } else {
-            // Covers the case of data not being ready yet.
-            holder.cityItemView.setText("No City");
-        }
         /**need this to uncheck the city radios
          *  since only one radio button is allowed to be selected,
          this condition un-checks previous selections
@@ -88,8 +95,22 @@ public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.CityVi
         Log.d("PositionIS", String.valueOf(position));
     }
 
-    public void setCities(List<City> words){
-        mCities = words;
+    public void setCities(List<City> cities){
+        mCities = cities;
+        notifyDataSetChanged();
+    }
+
+
+    /**no idea
+     * if
+     * this
+     * works
+     * maybe delete
+     * @param city
+     * tested, this and setCities seem to do the same beep
+     */
+    public void deleteCity(List<City>city){
+        mCities=city;
         notifyDataSetChanged();
     }
 
@@ -116,15 +137,6 @@ public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.CityVi
             deleteCity=itemView.findViewById(R.id.deleteCity);
 
 
-            /**city radio related, NO IDEA how it works atm, please don't delete again**/
-//            selectionState.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    lastSelectedCity=cityItemView.getText().toString();
-//                    notifyDataSetChanged();
-//
-//                }
-//            });
 
         }
     }
