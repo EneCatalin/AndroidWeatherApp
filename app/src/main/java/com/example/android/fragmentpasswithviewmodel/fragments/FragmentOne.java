@@ -58,18 +58,25 @@ public class FragmentOne extends Fragment {
         CityListAdapter adapter = new CityListAdapter(getContext());
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-
-
-
-        /**checks if any cities are added/deleted*/
-        mCityViewModel.getAllcities().observe(this, new Observer<List<City>>() {
+        CityListAdapter.InfoAdapterInterface adapterInterface = new CityListAdapter.InfoAdapterInterface() {
             @Override
-            public void onChanged(@Nullable final List<City> words) {
-                // Update the cached copy of the words in the adapter.
-                adapter.setCities(words);
+            public void OnItemClicked(int item_id) {
 
-            }
+                mCityViewModel.deleteWord(adapter.getCityAtPosition(item_id));
+                Log.d("WeAreHereNowMain", String.valueOf(adapter.getCityAtPosition(item_id)));
+
+        }
+    };
+    /**checks if any cities are added/deleted*/
+        mCityViewModel.getAllcities().observe(this, new Observer<List<City>>() {
+        @Override
+        public void onChanged(@Nullable final List<City> words) {
+            // Update the cached copy of the words in the adapter.
+            adapter.setCities(words);
+
+        }
         });
+
 
 
 
@@ -112,6 +119,8 @@ public class FragmentOne extends Fragment {
                 });
 
         helper.attachToRecyclerView(recyclerView);
+
+
 
 
 

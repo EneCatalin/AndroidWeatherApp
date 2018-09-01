@@ -22,8 +22,10 @@ public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.CityVi
     /**Get layout inflater*/
     private final LayoutInflater mInflater;
     private List<City> mCities; // Cached copy of words
+    private InfoAdapterInterface adapterInterface;
 
     public CityListAdapter(Context context) {
+        // Initialize your interface to send updates to fragment.
         mInflater = LayoutInflater.from(context);
     }
 
@@ -62,10 +64,25 @@ public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.CityVi
         });
 
 
+
         holder.deleteCity.setOnClickListener(new View.OnClickListener(){
+
             @Override
             public void onClick(View v) {
-                Log.d("ClickedClicked222","those? "+position);
+//                adapterInterface.OnItemClicked(position);
+                Log.d("WeAreHereUp1","those? "+position);
+
+                InfoAdapterInterface infoAdapterInterface = new InfoAdapterInterface() {
+
+                    @Override
+                    public void OnItemClicked(int item_id) {
+                        Log.d("WeAreHereUp", "those? " + position);
+//                        adapterInterface.OnItemClicked(item_id);
+                        Log.d("WeAreHereDown", "those? " + position);
+                    }
+
+                };
+                infoAdapterInterface.OnItemClicked(position);
             }
 
         });
@@ -92,7 +109,7 @@ public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.CityVi
         holder.selectionState.setChecked(lastSelectedCity.equals((String) holder.cityItemView.getText()));
 
 
-        Log.d("PositionIS", String.valueOf(position));
+
     }
 
     public void setCities(List<City> cities){
@@ -113,7 +130,9 @@ public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.CityVi
         mCities=city;
         notifyDataSetChanged();
     }
-
+    public interface InfoAdapterInterface{
+        void OnItemClicked(int item_id);
+    }
     // getItemCount() is called many times, and when it is first called,
     // mCities has not been updated (means initially, it's null, and we can't return null).
     @Override
