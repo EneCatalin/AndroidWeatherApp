@@ -23,6 +23,7 @@ import android.widget.Toast;
 import com.example.android.fragmentpasswithviewmodel.R;
 import com.example.android.fragmentpasswithviewmodel.adapter.city.CityListAdapter;
 import com.example.android.fragmentpasswithviewmodel.model.city.City;
+import com.example.android.fragmentpasswithviewmodel.service.ItemClickListener;
 import com.example.android.fragmentpasswithviewmodel.views.CityViewModel;
 import com.example.android.fragmentpasswithviewmodel.vm.SharedViewModel;
 
@@ -53,20 +54,24 @@ public class FragmentOne extends Fragment {
         /**RecyclerView and database stuff here. I really need to start commenting this*/
         mCityViewModel = ViewModelProviders.of(this).get(CityViewModel.class);
 
+        ItemClickListener listener = new ItemClickListener()
+        {
+            @Override
+            public void onItemClicked(RecyclerView.ViewHolder vh, City city, int pos)
+            {
+                Toast.makeText(getActivity(), "Item clicked: " + pos, Toast.LENGTH_SHORT).show();
+                Log.d("IGETTHIS", city.getCity());
+//                mCityViewModel.deleteWord(item.toString());
+
+            }
+        };
+
         RecyclerView recyclerView = view.findViewById(R.id.recyclerview);
 
-        CityListAdapter adapter = new CityListAdapter(getContext());
+        CityListAdapter adapter = new CityListAdapter(getContext(),listener);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        CityListAdapter.InfoAdapterInterface adapterInterface = new CityListAdapter.InfoAdapterInterface() {
-            @Override
-            public void OnItemClicked(int item_id) {
 
-                mCityViewModel.deleteWord(adapter.getCityAtPosition(item_id));
-                Log.d("WeAreHereNowMain", String.valueOf(adapter.getCityAtPosition(item_id)));
-
-        }
-    };
     /**checks if any cities are added/deleted*/
         mCityViewModel.getAllcities().observe(this, new Observer<List<City>>() {
         @Override

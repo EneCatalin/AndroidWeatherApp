@@ -11,12 +11,11 @@ import android.widget.TextView;
 
 import com.example.android.fragmentpasswithviewmodel.R;
 import com.example.android.fragmentpasswithviewmodel.model.city.City;
+import com.example.android.fragmentpasswithviewmodel.service.ItemClickListener;
 
 import java.util.List;
 
 public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.CityViewHolder> {
-
-
     private String lastSelectedCity="";
 
     /**Get layout inflater*/
@@ -24,8 +23,13 @@ public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.CityVi
     private List<City> mCities; // Cached copy of words
     private InfoAdapterInterface adapterInterface;
 
-    public CityListAdapter(Context context) {
+    Context context;
+    ItemClickListener itemClickListener;
+
+    public CityListAdapter(Context context, ItemClickListener itemClickListener) {
         // Initialize your interface to send updates to fragment.
+        this.context = context;
+        this.itemClickListener = itemClickListener;
         mInflater = LayoutInflater.from(context);
     }
 
@@ -37,8 +41,8 @@ public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.CityVi
     }
 
     @Override
-    public void onBindViewHolder(CityViewHolder holder, int position) {
-
+    public void onBindViewHolder(final CityViewHolder holder, int position) {
+        final City city= mCities.get(position);
 
         if (mCities != null) {
             /**Get current city*/
@@ -62,29 +66,12 @@ public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.CityVi
             }
 
         });
-
-
-
         holder.deleteCity.setOnClickListener(new View.OnClickListener(){
-
             @Override
             public void onClick(View v) {
-//                adapterInterface.OnItemClicked(position);
-                Log.d("WeAreHereUp1","those? "+position);
+                itemClickListener.onItemClicked(holder, city, position);
 
-                InfoAdapterInterface infoAdapterInterface = new InfoAdapterInterface() {
-
-                    @Override
-                    public void OnItemClicked(int item_id) {
-                        Log.d("WeAreHereUp", "those? " + position);
-//                        adapterInterface.OnItemClicked(item_id);
-                        Log.d("WeAreHereDown", "those? " + position);
-                    }
-
-                };
-                infoAdapterInterface.OnItemClicked(position);
             }
-
         });
 
         /**Keep it here or in the viewholder. Careful with this it can break the
@@ -93,14 +80,11 @@ public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.CityVi
             @Override
             public void onClick(View v) {
                 Log.d("ClickedClicked111","that "+position);
-
                 lastSelectedCity=holder.cityItemView.getText().toString();
                 Log.d("CheckedCity",lastSelectedCity=holder.cityItemView.getText().toString());
                 notifyDataSetChanged();
             }
         });
-
-
 
         /**need this to uncheck the city radios
          *  since only one radio button is allowed to be selected,
@@ -117,7 +101,9 @@ public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.CityVi
         notifyDataSetChanged();
     }
 
-
+    public City getCity(int position) {
+        return mCities.get(position);
+    }
     /**no idea
      * if
      * this
@@ -154,8 +140,6 @@ public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.CityVi
             cityItemView = itemView.findViewById(R.id.CityName);
             selectionState = (RadioButton) itemView.findViewById(R.id.city_status_radio_btn);
             deleteCity=itemView.findViewById(R.id.deleteCity);
-
-
 
         }
     }
