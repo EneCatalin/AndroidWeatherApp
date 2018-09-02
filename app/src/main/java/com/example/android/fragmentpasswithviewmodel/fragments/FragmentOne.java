@@ -22,6 +22,7 @@ import android.widget.Toast;
 import com.example.android.fragmentpasswithviewmodel.R;
 import com.example.android.fragmentpasswithviewmodel.adapter.city.CityListAdapter;
 import com.example.android.fragmentpasswithviewmodel.model.city.City;
+import com.example.android.fragmentpasswithviewmodel.service.ItemCheckListener;
 import com.example.android.fragmentpasswithviewmodel.service.ItemClickListener;
 import com.example.android.fragmentpasswithviewmodel.views.CityViewModel;
 import com.example.android.fragmentpasswithviewmodel.vm.SharedViewModel;
@@ -53,6 +54,7 @@ public class FragmentOne extends Fragment {
         /**RecyclerView and database stuff here. I really need to start commenting this*/
         mCityViewModel = ViewModelProviders.of(this).get(CityViewModel.class);
 
+        /**this lets the user press X and the city disappears, poof */
         ItemClickListener listener = new ItemClickListener()
         {
             @Override
@@ -68,9 +70,25 @@ public class FragmentOne extends Fragment {
         };
 
 
+        /**the overall app needs to get modified but anyway, this will fetch information about
+         * the checked (via radio) city**/
+        ItemCheckListener checkListener = new ItemCheckListener()
+        {
+            @Override
+            public void onItemClicked(RecyclerView.ViewHolder vh, City city, int pos)
+            {
+                Toast.makeText(getActivity(), "Item clicked: " + pos, Toast.LENGTH_LONG).show();
+                Log.d("IGOTTHIS", city.getCity());
+//                mCityViewModel.deleteCity(item.toString());
+                model.sendCity(city.getCity());
+
+
+            }
+        };
+
         RecyclerView recyclerView = view.findViewById(R.id.recyclerview);
 
-        CityListAdapter adapter = new CityListAdapter(getContext(),listener);
+        CityListAdapter adapter = new CityListAdapter(getContext(),listener,checkListener);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
