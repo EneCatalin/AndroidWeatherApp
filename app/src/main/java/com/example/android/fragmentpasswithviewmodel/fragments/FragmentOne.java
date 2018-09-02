@@ -60,11 +60,13 @@ public class FragmentOne extends Fragment {
             {
                 Toast.makeText(getActivity(), "Item clicked: " + pos, Toast.LENGTH_SHORT).show();
                 Log.d("IGETTHIS", city.getCity());
-//                mCityViewModel.deleteWord(item.toString());
-                mCityViewModel.deleteWord(city.getCity());
+//                mCityViewModel.deleteCity(item.toString());
+                mCityViewModel.deleteCity(city.getCity());
+
 
             }
         };
+
 
         RecyclerView recyclerView = view.findViewById(R.id.recyclerview);
 
