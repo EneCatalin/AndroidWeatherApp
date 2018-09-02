@@ -9,7 +9,6 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.helper.ItemTouchHelper;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -62,6 +61,7 @@ public class FragmentOne extends Fragment {
                 Toast.makeText(getActivity(), "Item clicked: " + pos, Toast.LENGTH_SHORT).show();
                 Log.d("IGETTHIS", city.getCity());
 //                mCityViewModel.deleteWord(item.toString());
+                mCityViewModel.deleteWord(city.getCity());
 
             }
         };
@@ -81,52 +81,6 @@ public class FragmentOne extends Fragment {
 
         }
         });
-
-
-
-
-// Add the functionality to swipe items in the
-        // recycler view to delete that item
-        ItemTouchHelper helper = new ItemTouchHelper(
-                new ItemTouchHelper.SimpleCallback(0,
-                        ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
-                    @Override
-                    public boolean onMove(RecyclerView recyclerView,
-                                          RecyclerView.ViewHolder viewHolder,
-                                          RecyclerView.ViewHolder target) {
-                        return false;
-                    }
-
-
-
-                    @Override
-                    public void onSwiped(RecyclerView.ViewHolder viewHolder,
-                                         int direction) {
-                        int position = viewHolder.getAdapterPosition();
-                        City mCity = adapter.getCityAtPosition(position);
-                        Toast.makeText(getContext(), "Deleting " +
-                                mCity.getCity(), Toast.LENGTH_LONG).show();
-
-                        // Delete the word
-                        mCityViewModel.deleteWord(mCity);
-                        onClick(viewHolder);
-                    }
-
-
-                    public void onClick(RecyclerView.ViewHolder viewHolder) {
-                        int position = viewHolder.getAdapterPosition();
-                        City mCity = adapter.getCityAtPosition(position);
-                        Toast.makeText(getContext(), "Deleting " +
-                                mCity.getCity(), Toast.LENGTH_LONG).show();
-                        Log.d("GOThere", mCity.getCity());
-                    }
-
-                });
-
-        helper.attachToRecyclerView(recyclerView);
-
-
-
 
 
         Button buttonX = (Button)view.findViewById(R.id.btnPassData);

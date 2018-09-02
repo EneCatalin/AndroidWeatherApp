@@ -32,5 +32,6 @@ public class CityViewModel extends AndroidViewModel {
     }
 
     public void deleteAll() {mRepository.deleteAll();}
-    public void deleteWord(City city) {mRepository.deleteCity(city);}
+
+    public void deleteWord(String city) {mRepository.deleteCity(city);}
 }

@@ -2,7 +2,6 @@ package com.example.android.fragmentpasswithviewmodel.service;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
-import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
@@ -26,6 +25,7 @@ public interface CityDao {
     @Query("SELECT * from city_table LIMIT 1")
     City[] getAnyCity();
 
-    @Delete
-    void deleteCity(City city);
+    /**we get a string with the city name*/
+    @Query("DELETE FROM city_table WHERE city=:city")
+    void deleteCity(String city);
 }

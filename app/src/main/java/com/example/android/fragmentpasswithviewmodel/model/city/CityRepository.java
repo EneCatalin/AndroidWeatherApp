@@ -69,8 +69,8 @@ public class CityRepository {
         new deleteAllCitiesAsyncTask(mCityDao).execute();
     }
 
-    /**Async task to delete a city*/
-    private static class deleteCityAsyncTask extends AsyncTask<City, Void, Void> {
+    /**Async task to delete a city with the name given as a string*/
+    private static class deleteCityAsyncTask extends AsyncTask<String, Void, Void> {
         private CityDao mAsyncTaskDao;
 
         deleteCityAsyncTask(CityDao dao) {
@@ -78,14 +78,14 @@ public class CityRepository {
         }
 
         @Override
-        protected Void doInBackground(final City... params) {
-            mAsyncTaskDao.deleteCity(params[0]);
+        protected Void doInBackground(String... cities) {
+            mAsyncTaskDao.deleteCity(cities[0]);
             return null;
         }
     }
 
     /**method to delete a city*/
-    public void deleteCity(City city) {
+    public void deleteCity(String city) {
         new deleteCityAsyncTask(mCityDao).execute(city);
     }
 
