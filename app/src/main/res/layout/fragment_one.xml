@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:text="PASS DATA TO FRAGMENT TWO" />
+            android:text="ADD CIty" />
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recyclerview"
