@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
     ViewPager viewPager;
     ViewPageAdapter viewPagerAdapter;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +26,11 @@ public class MainActivity extends AppCompatActivity {
         viewPager = (ViewPager) findViewById(R.id.viewPager);
         viewPagerAdapter = new ViewPageAdapter(getSupportFragmentManager());
         viewPager.setAdapter(viewPagerAdapter);
+        /**Without this line the checked item pref is destroyed. This is just an easy fix
+         * PROBABLY a very bad idea in any project where a lot of data is saved in a fragment
+         * but since this is a small weather thingy it should hopefully be ok
+         * */
+        viewPager.setOffscreenPageLimit(2);
 
         /**Uncomment this for a tabbed layout**/
 //        tabLayout = (TabLayout) findViewById(R.id.tabs);
