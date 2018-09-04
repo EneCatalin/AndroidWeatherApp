@@ -5,6 +5,9 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import com.example.android.fragmentpasswithviewmodel.adapter.ViewPageAdapter;
 
@@ -32,9 +35,24 @@ public class MainActivity extends AppCompatActivity {
          * */
         viewPager.setOffscreenPageLimit(2);
 
+
+
         /**Uncomment this for a tabbed layout**/
 //        tabLayout = (TabLayout) findViewById(R.id.tabs);
 //        tabLayout.setupWithViewPager(viewPager);
     }
+    public void setActionBarTitle(String title) {
+        getSupportActionBar().setTitle(title);
+    }
 
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.weather_menu,menu);
+        return true;
+    }
+
+
+
+    public void send_to_weather_menu(MenuItem item) {
+        Log.d("Pressed", "send_to_weather_menu: ");
+    }
 }

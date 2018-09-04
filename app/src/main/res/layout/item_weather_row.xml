@@ -40,7 +40,7 @@
             android:id="@+id/day_temp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="24dp"
+            android:layout_marginLeft="44dp"
             android:layout_marginRight="8dp"
             android:layout_toRightOf="@id/Day_of_the_week"
             android:text="31"

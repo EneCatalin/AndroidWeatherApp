@@ -41,7 +41,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:paddingTop="15dp"
-                android:text="19"
+                android:text="@string/no_weather_found"
                 android:textColor="@color/colorWhite"
                 android:textSize="32sp" />
 

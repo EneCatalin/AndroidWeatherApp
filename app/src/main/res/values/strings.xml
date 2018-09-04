@@ -2,7 +2,7 @@
 
 <resources>
 
-    <string name="app_name">PassingDataBetweenFragments</string>
+    <string name="app_name">GibWeather</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -24,4 +24,6 @@
     <string name="hint_word">enter a city</string>
     <string name="save">save</string>
     <string name="empty_not_saved">no city given</string>
+    <string name="settings">Settings</string>
+    <string name="no_weather_found">NO WEATHER FOUND</string>
 </resources>

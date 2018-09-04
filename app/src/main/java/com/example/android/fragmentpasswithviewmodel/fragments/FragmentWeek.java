@@ -48,6 +48,7 @@ public class FragmentWeek  extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         SharedViewModel model = ViewModelProviders.of(getActivity()).get(SharedViewModel.class);
 
+        Log.d("GOTHERE221112", "GOT HERE");
 
         model.getCity().observe(this, item -> {
             String cityName = item;
@@ -56,19 +57,16 @@ public class FragmentWeek  extends Fragment {
             Call<WeatherDataList> call = service.getWeekWeatherData(cityName, "metric", "7", GetWeatherDataService.API_KEY);
 
             /*Log the URL called*/
-            Log.wtf("URL Called", call.request().url() + "");
 
 
             call.enqueue(new Callback<WeatherDataList>() {
                 @Override
                 public void onResponse(Call<WeatherDataList> call, Response<WeatherDataList> response) {
-                    assert response.body() != null;
-                    if (response.code() == 200 && response.body().getCod().equals("200")) {
-                        Log.d("ENTERED IF", response.body().getCod());
+
+                    if (response.code() == 200 && response.message().equals("OK")) {
                         generateWeatherList(response.body().getWeatherArrayList());
                     } else {
-                        Log.d("ENTERED ELSE", response.body().getCod());
-                        Toast.makeText(getContext(), response.body().getCod(), Toast.LENGTH_SHORT).show();
+                        Log.d("FragmentWeek", "stoppedHere");
                     }
                 }
 

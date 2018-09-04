@@ -226,8 +226,8 @@ public class DayLongWeather {
         return this;
     }
 
-    public Integer getCod() {
-        return cod;
+    public String getCod() {
+        return cod.toString();
     }
 
     public void setCod(Integer cod) {

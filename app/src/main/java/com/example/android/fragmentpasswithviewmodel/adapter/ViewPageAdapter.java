@@ -10,9 +10,11 @@ import com.example.android.fragmentpasswithviewmodel.fragments.FragmentWeek;
 
 public class ViewPageAdapter extends FragmentPagerAdapter {
 
+
     public ViewPageAdapter(FragmentManager fm) {
         super(fm);
     }
+
 
     @Override
     public Fragment getItem(int position) {

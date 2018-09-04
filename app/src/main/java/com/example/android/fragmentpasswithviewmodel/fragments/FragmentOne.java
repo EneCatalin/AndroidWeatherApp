@@ -4,9 +4,12 @@ package com.example.android.fragmentpasswithviewmodel.fragments;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -19,6 +22,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
+import com.example.android.fragmentpasswithviewmodel.MainActivity;
 import com.example.android.fragmentpasswithviewmodel.R;
 import com.example.android.fragmentpasswithviewmodel.adapter.city.CityListAdapter;
 import com.example.android.fragmentpasswithviewmodel.model.city.City;
@@ -41,6 +45,8 @@ public class FragmentOne extends Fragment {
         View rootView = inflater.inflate(
                 R.layout.fragment_one, container, false);
         return rootView;
+
+
     }
 
     @Override
@@ -54,6 +60,8 @@ public class FragmentOne extends Fragment {
         /**RecyclerView and database stuff here. I really need to start commenting this*/
         mCityViewModel = ViewModelProviders.of(this).get(CityViewModel.class);
 
+
+
         /**this lets the user press X and the city disappears, poof */
         ItemClickListener listener = new ItemClickListener()
         {
@@ -65,7 +73,12 @@ public class FragmentOne extends Fragment {
 //                mCityViewModel.deleteCity(item.toString());
                 mCityViewModel.deleteCity(city.getCity());
 
-
+                /**Hides the keyboard so it doesn't drive the user nuts**/
+                InputMethodManager inputManager = (InputMethodManager)
+                        getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                if (inputManager != null) {
+                    inputManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
+                }
             }
         };
 
@@ -79,8 +92,19 @@ public class FragmentOne extends Fragment {
             {
                 Toast.makeText(getActivity(), "Item clicked: " + pos, Toast.LENGTH_LONG).show();
                 Log.d("IGOTTHIS", city.getCity());
-//                mCityViewModel.deleteCity(item.toString());
+
+
+                /**sends the city**/
                 model.sendCity(city.getCity());
+                ((MainActivity) getActivity())
+                        .setActionBarTitle(city.getCity());
+
+                /**Hides the keyboard so it doesn't drive the user nuts**/
+                InputMethodManager inputManager = (InputMethodManager)
+                        getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                if (inputManager != null) {
+                    inputManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
+                }
 
 
             }
@@ -107,13 +131,31 @@ public class FragmentOne extends Fragment {
         buttonX.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v)
             {
-//                Log.d("TRIMIS",inData.getText().toString());
-                model.sendCity(inData.getText().toString());
-                //DO SOMETHING! {RUN SOME FUNCTION ... DO CHECKS... ETC}
 
-                /**SHOULD ADD A CITY**/
-                City city = new City(inData.getText().toString());
-                mCityViewModel.insert(city);
+
+                /**shows dialogue telling you to enter a city
+                 * makes sure not to enter an empty string but atm doesn't check
+                 * for anything else**/
+                if(inData.getText().toString().equals("")){
+                    AlertDialog.Builder ab = new AlertDialog.Builder(getContext());
+                    Log.d("IZHERE", "WE IZ HERE");
+                    ab.setMessage("No city entered");
+                    ab.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        Intent in=new Intent(getContext(), MainActivity.class);
+
+                    }
+                });
+                    ab.create().show();
+                }
+                else{
+                    /**SHOULD ADD A CITY**/
+                    City city = new City(inData.getText().toString());
+                    mCityViewModel.insert(city);
+                }
 
 
                 /**HIDES THE KEYBOARD**/
@@ -127,9 +169,7 @@ public class FragmentOne extends Fragment {
             }
         });
 
-
-
-
     }
+
 }
 

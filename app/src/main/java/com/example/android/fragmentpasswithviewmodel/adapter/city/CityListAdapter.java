@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.example.android.fragmentpasswithviewmodel.R;
 import com.example.android.fragmentpasswithviewmodel.model.city.City;
+import com.example.android.fragmentpasswithviewmodel.service.ItemCheckListener;
 import com.example.android.fragmentpasswithviewmodel.service.ItemClickListener;
 
 import java.util.List;
@@ -25,10 +26,12 @@ public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.CityVi
 
     Context context;
     ItemClickListener itemClickListener;
+    ItemCheckListener itemCheckListener;
 
-    public CityListAdapter(Context context, ItemClickListener itemClickListener) {
+    public CityListAdapter(Context context, ItemClickListener itemClickListener,ItemCheckListener itemCheckListener) {
         // Initialize your interface to send updates to fragment.
         this.context = context;
+        this.itemCheckListener=itemCheckListener;
         this.itemClickListener = itemClickListener;
         mInflater = LayoutInflater.from(context);
     }
@@ -70,7 +73,7 @@ public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.CityVi
             @Override
             public void onClick(View v) {
                 itemClickListener.onItemClicked(holder, city, position);
-
+                Log.d("CityListAdapter", "1");
             }
         });
 
@@ -82,6 +85,11 @@ public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.CityVi
                 Log.d("ClickedClicked111","that "+position);
                 lastSelectedCity=holder.cityItemView.getText().toString();
                 Log.d("CheckedCity",lastSelectedCity=holder.cityItemView.getText().toString());
+
+                /**implement the new itemClickListener here*/
+                itemCheckListener.onItemClicked(holder, city, position);
+                Log.d("CityListAInsert", "1");
+
                 notifyDataSetChanged();
             }
         });
