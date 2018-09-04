@@ -27,7 +27,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 
-public class FragmentWeek  extends Fragment {
+public class FragmentWeek extends Fragment {
 
 
     private WeatherAdapter adapter;
@@ -43,6 +43,7 @@ public class FragmentWeek  extends Fragment {
                 R.layout.fragment_week, container, false);
         return rootView;
     }
+
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -78,8 +79,6 @@ public class FragmentWeek  extends Fragment {
 
 
         });
-
-
 
     }
 
