@@ -62,6 +62,7 @@ public class FragmentOne extends Fragment {
 
 
 
+
         /**this lets the user press X and the city disappears, poof */
         ItemClickListener listener = new ItemClickListener()
         {
@@ -109,6 +110,7 @@ public class FragmentOne extends Fragment {
 
             }
         };
+
 
         RecyclerView recyclerView = view.findViewById(R.id.recyclerview);
 

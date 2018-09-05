@@ -1,9 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.SettingsACtivity">
+    tools:context=".activities.SettingsACtivity"
+    android:orientation="vertical">
 
-</android.support.constraint.ConstraintLayout>
+
+
+        <!--<android.support.v7.widget.Toolbar-->
+            <!--android:id="@+id/toolbar_settings"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="?attr/actionBarSize"-->
+            <!--android:background="?attr/colorPrimary"-->
+            <!--app:popupTheme="@style/AppTheme.PopupOverlay"-->
+            <!--app:title="@string/settings"/>-->
+
+
+    <android.support.v7.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/unit_setting">
+        <TextView
+            android:id="@+id/units_left_text"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:textSize="30sp"
+            android:text="@string/units"
+            android:textColor="@color/black"
+            />
+        <android.support.v7.widget.LinearLayoutCompat
+            android:id="@+id/unit_measure_setting"
+            android:layout_gravity="end"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:weightSum="10"
+            android:gravity="end"
+            >
+
+            <TextView
+                android:id="@+id/Celsius_TV"
+                android:onClick="select_celius"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:paddingRight="10dp"
+                android:text="@string/CELSIUS"
+                android:textColor="@color/black"
+                android:textSize="50sp" />
+
+            <TextView
+                android:id="@+id/Fahr_TV"
+                android:onClick="select_fahrenheit"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:gravity="end"
+                android:paddingLeft="10dp"
+                android:text="@string/FAHRENHEIT"
+                android:textColor="@color/black"
+
+                android:textSize="50sp" />
+        </android.support.v7.widget.LinearLayoutCompat>
+    </android.support.v7.widget.LinearLayoutCompat>
+
+<android.support.v7.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:id="@+id/notification_status"
+    >
+
+    <Switch
+        android:id="@+id/notification_switch"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Notifications"
+        android:textSize="30sp"
+        />
+</android.support.v7.widget.LinearLayoutCompat>
+<android.support.v7.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:id="@+id/dark_theme_setting">
+
+    <Switch
+        android:id="@+id/dark_layout_switch"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Dark THeme"
+        android:textSize="30sp"
+        />
+
+</android.support.v7.widget.LinearLayoutCompat>
+
+</LinearLayout>
