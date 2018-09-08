@@ -22,7 +22,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activities.SettingsACtivity"
+            android:name=".activities.SettingsActivity"
             android:parentActivityName=".MainActivity" />
     </application>
 

@@ -65,4 +65,8 @@ dependencies {
     //     Support library depends on this lightweight import
     implementation "android.arch.lifecycle:runtime:$lifecycle_version"
     annotationProcessor "android.arch.lifecycle:compiler:$lifecycle_version" // use kapt for Kotlin
+
+    //preference
+    implementation "com.android.support:preference-v7:27.1.1"
+
 }
