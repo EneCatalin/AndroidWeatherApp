@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+
+<resources>
+
+    <string name="app_name">GibVreme</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string name="instructions">Adaugă un oraș</string>
+    <string name="input_hint">Oraș</string>
+    <string name="button_text">Adaugă oraș</string>
+    <string name="AddCity">Introduceți un oraș</string>
+    <string name="dots">…</string>
+    <string name="instructions2">Verificați vremea în:</string>
+    <string name="Check">Verifică</string>
+    <string name="city_not_found">Orașul nu a fost găsit</string>
+    <string name="enter_a_city">Introdu un oraș!</string>
+    <string name="SevenDayCheck">Verifică pe o săptămână</string>
+    <string name="city_not_found_text">Orașul nu a fost găsit</string>
+    <string name="minus">-</string>
+    <string name="ok">OK</string>
+    <string name="hint_word">introdu un oraș</string>
+    <string name="save">salvează</string>
+    <string name="empty_not_saved">orașul nu a fost introdus</string>
+    <string name="settings">Setări</string>
+    <string name="no_weather_found">VREAMEA NU A FOST GĂSITĂ</string>
+    <string name="FAHRENHEIT">°F</string>
+    <string name="CELSIUS">°C</string>
+    <string name="units">UNITĂȚI</string>
+    <string name="fahrenheit">Fahrenheit</string>
+    <string name="celsius">Celsius</string>
+    <string name="select_lang">Alege o limbă</string>
+    <string name="language">Limbă</string>
+    <string name="notifications">Notificări</string>
+    <string name="dark_theme_string">Temă Închisă</string>
+</resources>

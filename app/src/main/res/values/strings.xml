@@ -29,4 +29,10 @@
     <string name="FAHRENHEIT">°F</string>
     <string name="CELSIUS">°C</string>
     <string name="units">UNITS</string>
+    <string name="fahrenheit">Fahrenheit</string>
+    <string name="celsius">Celsius</string>
+    <string name="select_lang">Select a language</string>
+    <string name="language">Language</string>
+    <string name="notifications">Notifications</string>
+    <string name="dark_theme_string">Dark theme</string>
 </resources>

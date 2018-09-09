@@ -16,20 +16,13 @@ public class SettingsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getFragmentManager().beginTransaction().replace(android.R.id.content, new MyPreferenceFragment()).commit();
+        
 
         /**apparently needed for the action bar, but not really. StackOverflow copy pasta, proud
          * of myself over this of all pieces of code copied. Ima rewrite this whole thing myself
          * the second I actually understand how settings and the bloody action bar work together**/
-//        getSupportActionBar().setDisplayShowHomeEnabled(true);
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
     }
-
-//    @Override
-//    public boolean onSupportNavigateUp(){
-//        finish();
-//        return true;
-//    }
 
     /**SO SO SO very pissed I had to add this (also had a beer and some wine so yeah
      * NEED THIS or we don't get an actionBar. Why ? Because there's no god, that's why
@@ -46,47 +39,3 @@ public class SettingsActivity extends AppCompatActivity {
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-//
-//
-//public class SettingsActivity extends PreferenceActivity {
-//    @Override
-//    public void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        addPreferencesFromResource(R.xml.main_preferences);
-//    }
-//}
-
-//public class SettingsActivity extends AppCompatActivity {
-//
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_settings_activity);
-////        getActionBar().setDisplayHomeAsUpEnabled(true);
-//        final Activity activity = this;
-//        activity.setTitle("Settings");
-//
-//    }
-//
-//    public void select_celius(View view) {
-//    }
-//
-//    public void select_fahrenheit(View view) {
-//    }
-//
-//    public void setActionBarTitle(String title) {
-//        getSupportActionBar().setTitle(title);
-//    }
-//
-//
-//}
