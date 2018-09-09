@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.preference.PreferenceManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -25,6 +26,16 @@ Toolbar toolbar;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        /***Setting the default preferences
+         * About the third argument:
+         * A boolean indicating whether the default values should be set more than once. When false, the system
+         * the default values only if this method has never been called in the past. As long as you set this
+         * argument to false, you can safely call this method every time the main activity starts without overriding
+         * the user's saved settings values. However, if you set it to true, the method will override any previous
+         * values with the defaults.*/
+        PreferenceManager.setDefaultValues(this, R.xml.main_preferences, false);
+
 
 //        toolbar=(Toolbar)findViewById(R.id.toolbar);
         viewPager = (ViewPager) findViewById(R.id.viewPager);

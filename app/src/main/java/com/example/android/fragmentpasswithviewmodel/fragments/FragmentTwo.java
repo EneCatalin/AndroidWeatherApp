@@ -92,7 +92,7 @@ public class FragmentTwo extends Fragment {
 
                         if (response.code() == 200 && response.body().getCod().toString().equals("200")) {
                             Log.d("ENTEREDIF1", String.valueOf(response.body().toString()));
-                            Toast.makeText(getActivity(), "Item clicked: " + response.body().getCod().toString(), Toast.LENGTH_SHORT).show();
+//                            Toast.makeText(getActivity(), "Item clicked: " + response.body().getCod().toString(), Toast.LENGTH_SHORT).show();
 
                             DayLongWeather dayLongWeather = response.body();
                             mDaily_weather_temperature.setText(Integer.toString(dayLongWeather.getMain().getTemp()));

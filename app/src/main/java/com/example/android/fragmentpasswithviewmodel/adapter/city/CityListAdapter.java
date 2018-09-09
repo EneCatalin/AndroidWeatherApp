@@ -124,6 +124,8 @@ public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.CityVi
         mCities=city;
         notifyDataSetChanged();
     }
+
+    /***maybe delete this in final vers ? Doesn't seem to be used*/
     public interface InfoAdapterInterface{
         void OnItemClicked(int item_id);
     }

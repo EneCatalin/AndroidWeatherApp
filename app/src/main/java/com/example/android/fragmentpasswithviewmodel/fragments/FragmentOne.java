@@ -20,7 +20,6 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
-import android.widget.Toast;
 
 import com.example.android.fragmentpasswithviewmodel.MainActivity;
 import com.example.android.fragmentpasswithviewmodel.R;
@@ -69,7 +68,7 @@ public class FragmentOne extends Fragment {
             @Override
             public void onItemClicked(RecyclerView.ViewHolder vh, City city, int pos)
             {
-                Toast.makeText(getActivity(), "Item clicked: " + pos, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getActivity(), "Item clicked: " + pos, Toast.LENGTH_SHORT).show();
                 Log.d("IGETTHIS", city.getCity());
 //                mCityViewModel.deleteCity(item.toString());
                 mCityViewModel.deleteCity(city.getCity());
@@ -91,7 +90,7 @@ public class FragmentOne extends Fragment {
             @Override
             public void onItemClicked(RecyclerView.ViewHolder vh, City city, int pos)
             {
-                Toast.makeText(getActivity(), "Item clicked: " + pos, Toast.LENGTH_LONG).show();
+//                Toast.makeText(getActivity(), "Item clicked: " + pos, Toast.LENGTH_LONG).show();
                 Log.d("IGOTTHIS", city.getCity());
 
 
