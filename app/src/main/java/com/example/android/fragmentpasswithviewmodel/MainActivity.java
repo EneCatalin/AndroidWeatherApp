@@ -36,7 +36,9 @@ Toolbar toolbar;
          * values with the defaults.*/
         PreferenceManager.setDefaultValues(this, R.xml.main_preferences, false);
 
-
+        /**This log is just a small example of how to access the preferences. As a wise ostrich once said:
+         * easy peasy lemon squeezy**/
+        Log.d("ActMLog", "dark theme key: "+ PreferenceManager.getDefaultSharedPreferences(this).getBoolean("dark_theme_key", false));
 //        toolbar=(Toolbar)findViewById(R.id.toolbar);
         viewPager = (ViewPager) findViewById(R.id.viewPager);
         viewPagerAdapter = new ViewPageAdapter(getSupportFragmentManager());
