@@ -17,7 +17,13 @@
             android:key="temperature_key"
             android:summary="Fahrenheit"
             android:title="Celsius" />
-
+        <ListPreference
+            android:defaultValue="3"
+            android:entries="@array/entries_array"
+            android:entryValues="@array/entries_values_array"
+            android:key="GRR"
+            android:summary="Select a language"
+            android:title="Language" />
 
 
 
