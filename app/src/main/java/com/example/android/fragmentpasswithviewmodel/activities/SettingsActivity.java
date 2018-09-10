@@ -1,5 +1,6 @@
 package com.example.android.fragmentpasswithviewmodel.activities;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.ListPreference;
 import android.preference.Preference;
@@ -15,7 +16,6 @@ import com.example.android.fragmentpasswithviewmodel.R;
  *  that displays the app settings. Fragments like PreferenceFragment provide a
  *  more flexible architecture for your app, compared to using activities alone. **/
 public class SettingsActivity extends AppCompatActivity {
-    private static final String TAG = "SettingsActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,13 +23,12 @@ public class SettingsActivity extends AppCompatActivity {
         getFragmentManager().beginTransaction().replace(android.R.id.content, new MyPreferenceFragment()).commit();
 
     }
-
     private static android.preference.Preference.OnPreferenceChangeListener sBindPreferenceSummaryToValueListener = new android.preference.Preference.OnPreferenceChangeListener() {
         @Override
         public boolean onPreferenceChange(android.preference.Preference preference, Object value) {
             String stringValue = value.toString();
 
-            Log.d(TAG, "onPreferenceChange: ");
+            Log.d("CECECECE", "onPreferenceChange: ");
             if (preference instanceof ListPreference) {
                 // For list preferences, look up the correct display value in
                 // the preference's 'entries' list.
@@ -68,8 +67,21 @@ public class SettingsActivity extends AppCompatActivity {
         public void onCreate(final Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             addPreferencesFromResource(R.xml.main_preferences);
-
             bindPreferenceSummaryToValue(findPreference("Lang_list_pref"));
+
+            
+            SharedPreferences.OnSharedPreferenceChangeListener spChanged = new SharedPreferences.OnSharedPreferenceChangeListener() {
+                @Override
+                public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+                    // If the buy schedule has changed, cancel and recreate the alarms.
+                    if (key.equals("Lang_list_pref")) {
+                        Log.d("AAA", "AICI: ");
+                    }
+                }
+            };
+            PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext()).registerOnSharedPreferenceChangeListener(spChanged);
+
+
 
         }
 
