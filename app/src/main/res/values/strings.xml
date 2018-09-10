@@ -35,4 +35,6 @@
     <string name="language">Language</string>
     <string name="notifications">Notifications</string>
     <string name="dark_theme_string">Dark theme</string>
+    <string name="language_changed">Language changed!</string>
+
 </resources>

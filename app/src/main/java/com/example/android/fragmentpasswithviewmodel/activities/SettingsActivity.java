@@ -7,6 +7,7 @@ import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.example.android.fragmentpasswithviewmodel.R;
 
@@ -47,6 +48,7 @@ public class SettingsActivity extends AppCompatActivity {
                                 ? listPreference.getEntries()[index]
                                 : null);
 
+
             }
             return true;
         }
@@ -76,15 +78,22 @@ public class SettingsActivity extends AppCompatActivity {
             bindPreferenceSummaryToValue(findPreference("Lang_list_pref"));
 
 
-//            Preference pref;
-//            pref = findPreference("Lang_list_pref");
-//
-//            pref.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-//                @Override
-//                public boolean onPreferenceChange(Preference preference, Object newValue) {
-//                    return true;
-//                }
-//            });
+            /**This is a clever little cheat until I implement the new fragment with returning to this one
+             * thingy**/
+            Preference pref;
+            pref = findPreference("Lang_list_pref");
+            pref.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+                @Override
+                public boolean onPreferenceChange(Preference preference, Object newValue) {
+                    Log.d("VALNOU", "valoare: "+newValue);
+                    if(newValue.equals("English")){
+                        Toast.makeText(getActivity(),"Language Changed!",Toast.LENGTH_LONG).show();
+                    }else{
+                        Toast.makeText(getActivity(),"Limbă Schimbată!",Toast.LENGTH_LONG).show();
+                    }
+                    return true;
+                }
+            });
 
         }
 

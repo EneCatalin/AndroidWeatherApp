@@ -35,4 +35,5 @@
     <string name="language">Limbă</string>
     <string name="notifications">Notificări</string>
     <string name="dark_theme_string">Temă Închisă</string>
+    <string name="language_changed">Limbă schimbată!</string>
 </resources>
