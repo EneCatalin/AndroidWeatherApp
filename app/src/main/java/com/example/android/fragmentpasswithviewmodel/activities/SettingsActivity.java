@@ -76,15 +76,15 @@ public class SettingsActivity extends AppCompatActivity {
             bindPreferenceSummaryToValue(findPreference("Lang_list_pref"));
 
 
-            Preference pref;
-            pref = findPreference("Lang_list_pref");
-
-            pref.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-                @Override
-                public boolean onPreferenceChange(Preference preference, Object newValue) {
-                    return true;
-                }
-            });
+//            Preference pref;
+//            pref = findPreference("Lang_list_pref");
+//
+//            pref.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+//                @Override
+//                public boolean onPreferenceChange(Preference preference, Object newValue) {
+//                    return true;
+//                }
+//            });
 
         }
 
@@ -92,18 +92,3 @@ public class SettingsActivity extends AppCompatActivity {
 }
 
 
-//    SharedPreferences.OnSharedPreferenceChangeListener spChanged = new SharedPreferences.OnSharedPreferenceChangeListener() {
-//        @Override
-//        public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-//            // If the buy schedule has changed, cancel and recreate the alarms.
-//            if (key.equals("Lang_list_pref")) {
-//                Log.d("AAA", "AICI: ");
-////                        getActivity().recreate();
-////                        Log.d("AAA", "recreateeCalled: ");
-////                        Intent intent = new Intent(getActivity(), MainActivity.class);
-////                        intent.setAction(SettingsActivity.ACTION_REFRESH);
-////                        getActivity().startActivity(intent);
-//            }
-//        }
-//    };
-//            PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext()).registerOnSharedPreferenceChangeListener(spChanged);
