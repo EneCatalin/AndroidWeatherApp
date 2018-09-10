@@ -15,6 +15,7 @@ import com.example.android.fragmentpasswithviewmodel.R;
  *  that displays the app settings. Fragments like PreferenceFragment provide a
  *  more flexible architecture for your app, compared to using activities alone. **/
 public class SettingsActivity extends AppCompatActivity {
+    private static final String TAG = "SettingsActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,12 +23,13 @@ public class SettingsActivity extends AppCompatActivity {
         getFragmentManager().beginTransaction().replace(android.R.id.content, new MyPreferenceFragment()).commit();
 
     }
+
     private static android.preference.Preference.OnPreferenceChangeListener sBindPreferenceSummaryToValueListener = new android.preference.Preference.OnPreferenceChangeListener() {
         @Override
         public boolean onPreferenceChange(android.preference.Preference preference, Object value) {
             String stringValue = value.toString();
 
-            Log.d("CECECECE", "onPreferenceChange: ");
+            Log.d(TAG, "onPreferenceChange: ");
             if (preference instanceof ListPreference) {
                 // For list preferences, look up the correct display value in
                 // the preference's 'entries' list.
