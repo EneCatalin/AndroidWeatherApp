@@ -69,13 +69,16 @@ public class SettingsActivity extends AppCompatActivity {
             addPreferencesFromResource(R.xml.main_preferences);
             bindPreferenceSummaryToValue(findPreference("Lang_list_pref"));
 
-            
+
             SharedPreferences.OnSharedPreferenceChangeListener spChanged = new SharedPreferences.OnSharedPreferenceChangeListener() {
                 @Override
                 public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
                     // If the buy schedule has changed, cancel and recreate the alarms.
                     if (key.equals("Lang_list_pref")) {
                         Log.d("AAA", "AICI: ");
+                        getActivity().recreate();
+                        Log.d("AAA", "recreateeCalled: ");
+
                     }
                 }
             };
