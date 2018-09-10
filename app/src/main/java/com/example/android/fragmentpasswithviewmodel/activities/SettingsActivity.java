@@ -16,13 +16,16 @@ import com.example.android.fragmentpasswithviewmodel.R;
  *  that displays the app settings. Fragments like PreferenceFragment provide a
  *  more flexible architecture for your app, compared to using activities alone. **/
 public class SettingsActivity extends AppCompatActivity {
-
+    public  void recreateSetting(){
+        recreate();
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getFragmentManager().beginTransaction().replace(android.R.id.content, new MyPreferenceFragment()).commit();
 
     }
+
     private static android.preference.Preference.OnPreferenceChangeListener sBindPreferenceSummaryToValueListener = new android.preference.Preference.OnPreferenceChangeListener() {
         @Override
         public boolean onPreferenceChange(android.preference.Preference preference, Object value) {
@@ -75,10 +78,12 @@ public class SettingsActivity extends AppCompatActivity {
                 public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
                     // If the buy schedule has changed, cancel and recreate the alarms.
                     if (key.equals("Lang_list_pref")) {
-                        Log.d("AAA", "AICI: ");
-                        getActivity().recreate();
-                        Log.d("AAA", "recreateeCalled: ");
-
+//                        Log.d("AAA", "AICI: ");
+//                        getActivity().recreate();
+//                        Log.d("AAA", "recreateeCalled: ");
+//                        Intent intent = new Intent(getActivity(), MainActivity.class);
+//                        intent.setAction(SettingsActivity.ACTION_REFRESH);
+//                        getActivity().startActivity(intent);
                     }
                 }
             };
