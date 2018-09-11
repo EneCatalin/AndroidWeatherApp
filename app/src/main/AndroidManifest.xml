@@ -24,6 +24,7 @@
         <activity
             android:name=".activities.SettingsActivity"
             android:parentActivityName=".MainActivity" />
+        <activity android:name=".activities.UnixTimeConverterScriptAct"></activity>
     </application>
 
 </manifest>
