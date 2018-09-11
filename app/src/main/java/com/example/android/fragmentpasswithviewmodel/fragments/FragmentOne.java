@@ -68,8 +68,6 @@ public class FragmentOne extends Fragment {
             @Override
             public void onItemClicked(RecyclerView.ViewHolder vh, City city, int pos)
             {
-//                Toast.makeText(getActivity(), "Item clicked: " + pos, Toast.LENGTH_SHORT).show();
-                Log.d("IGETTHIS", city.getCity());
 //                mCityViewModel.deleteCity(item.toString());
                 mCityViewModel.deleteCity(city.getCity());
 
@@ -91,7 +89,6 @@ public class FragmentOne extends Fragment {
             public void onItemClicked(RecyclerView.ViewHolder vh, City city, int pos)
             {
 //                Toast.makeText(getActivity(), "Item clicked: " + pos, Toast.LENGTH_LONG).show();
-                Log.d("IGOTTHIS", city.getCity());
 
 
                 /**sends the city**/
@@ -139,7 +136,6 @@ public class FragmentOne extends Fragment {
                  * for anything else**/
                 if(inData.getText().toString().equals("")){
                     AlertDialog.Builder ab = new AlertDialog.Builder(getContext());
-                    Log.d("IZHERE", "WE IZ HERE");
                     ab.setMessage("No city entered");
                     ab.setPositiveButton("OK", new DialogInterface.OnClickListener() {
 

@@ -57,7 +57,6 @@ public class FragmentTwo extends Fragment {
         model.getCity().observe(this, (String item) -> {
             txtData = (TextView) view.findViewById(R.id.cityData);
             txtData.setText(item);
-            Log.d("PRIMIT", item);
 
 
             // Get the intent that launched this activity, and the message in
@@ -83,15 +82,11 @@ public class FragmentTwo extends Fragment {
 
                 @Override
                 public void onResponse(Call<DayLongWeather> call, Response<DayLongWeather> response) {
-//                    Log.d("ENTEREDIF4", String.valueOf(response.body().getCod()));
 
-                    Log.d("RBODYIS", response.message());
                     if (response.message().equals("OK")) {
-                        Log.d("ENTEREDIF3", String.valueOf(response.body().getCod()));
 
 
                         if (response.code() == 200 && response.body().getCod().toString().equals("200")) {
-                            Log.d("ENTEREDIF1", String.valueOf(response.body().toString()));
 //                            Toast.makeText(getActivity(), "Item clicked: " + response.body().getCod().toString(), Toast.LENGTH_SHORT).show();
 
                             DayLongWeather dayLongWeather = response.body();
@@ -107,7 +102,6 @@ public class FragmentTwo extends Fragment {
                      */
 
                     else {
-                        Log.d("HHHH", "ASGASG");
 
                         mDaily_weather_weather_description.setText(response.message());
                         ((MainActivity) getActivity())

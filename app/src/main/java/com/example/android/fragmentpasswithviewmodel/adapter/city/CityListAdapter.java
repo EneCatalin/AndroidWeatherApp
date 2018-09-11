@@ -2,7 +2,6 @@ package com.example.android.fragmentpasswithviewmodel.adapter.city;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -65,7 +64,6 @@ public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.CityVi
             @Override
             public void onClick(View v) {
                 // write your code here
-                Log.d("ClickedClicked", "this "+position);
             }
 
         });
@@ -73,7 +71,6 @@ public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.CityVi
             @Override
             public void onClick(View v) {
                 itemClickListener.onItemClicked(holder, city, position);
-                Log.d("CityListAdapter", "1");
             }
         });
 
@@ -82,13 +79,10 @@ public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.CityVi
         holder.selectionState.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Log.d("ClickedClicked111","that "+position);
                 lastSelectedCity=holder.cityItemView.getText().toString();
-                Log.d("CheckedCity",lastSelectedCity=holder.cityItemView.getText().toString());
 
                 /**implement the new itemClickListener here*/
                 itemCheckListener.onItemClicked(holder, city, position);
-                Log.d("CityListAInsert", "1");
 
                 notifyDataSetChanged();
             }

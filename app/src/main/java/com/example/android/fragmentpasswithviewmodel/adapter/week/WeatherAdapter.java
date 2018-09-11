@@ -1,7 +1,6 @@
 package com.example.android.fragmentpasswithviewmodel.adapter.week;
 
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,7 +32,6 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.WeatherV
     @Override
     public void onBindViewHolder(WeatherViewHolder holder, int position) {
 
-        Log.d("1212121", String.valueOf(weatherList.get(position).getWeather().get(0).getId()));
 
         holder.mWeatherDescr.setText(weatherList.get(position).getWeather().get(0).getMain());
         holder.mDayWeather.setText(Integer.toString(weatherList.get(position).getTemp().getDay()));

@@ -49,7 +49,6 @@ public class FragmentWeek extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         SharedViewModel model = ViewModelProviders.of(getActivity()).get(SharedViewModel.class);
 
-        Log.d("GOTHERE221112", "GOT HERE");
 
         model.getCity().observe(this, item -> {
             String cityName = item;
@@ -59,7 +58,7 @@ public class FragmentWeek extends Fragment {
 
             /*Log the URL called*/
 
-
+            Log.wtf("URL CalledWeek", call.request().url() + "");
             call.enqueue(new Callback<WeatherDataList>() {
                 @Override
                 public void onResponse(Call<WeatherDataList> call, Response<WeatherDataList> response) {
