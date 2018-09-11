@@ -25,7 +25,7 @@
             android:layout_alignParentTop="true"
             android:layout_toRightOf="@+id/weather_Icon"
             android:text="Testing"
-            android:textSize="26sp" />
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/main_weather_description_of_weekday"
