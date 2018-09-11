@@ -36,4 +36,20 @@
     <string name="notifications">Notificări</string>
     <string name="dark_theme_string">Temă Închisă</string>
     <string name="language_changed">Limbă schimbată!</string>
+
+
+    <string name="Monday">Luni</string>
+    <string name="Tuesday">Marți</string>
+    <string name="Wednesday">Miercuri</string>
+    <string name="Thursday">Joi</string>
+    <string name="Friday">Vineri</string>
+    <string name="Saturday">Sâmbătă</string>
+    <string name="Sunday">Duminică</string>
+
+    <string name="clear">senin</string>
+    <string name="drizzle">burniţă</string>
+    <string name="rain">ploaie</string>
+    <string name="thunderstorm">furtună</string>
+    <string name="snow">zăpadă</string>
+
 </resources>

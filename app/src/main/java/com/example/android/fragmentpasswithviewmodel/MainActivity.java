@@ -12,7 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toolbar;
 
-import com.example.android.fragmentpasswithviewmodel.activities.UnixTimeConverterScriptAct;
+import com.example.android.fragmentpasswithviewmodel.activities.SettingsActivity;
 import com.example.android.fragmentpasswithviewmodel.adapter.ViewPageAdapter;
 
 import java.util.Locale;
@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void send_to_weather_menu(MenuItem item) {
 //        Log.d(TAG, "send_to_weather_menu: ");
-        Intent intent = new Intent(this, UnixTimeConverterScriptAct.class);
+        Intent intent = new Intent(this, SettingsActivity.class);
 
         intent.putExtra(EXTRA_MESSAGE, "hi");
         startActivity(intent);

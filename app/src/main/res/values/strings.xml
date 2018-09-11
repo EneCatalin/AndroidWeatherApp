@@ -37,4 +37,20 @@
     <string name="dark_theme_string">Dark theme</string>
     <string name="language_changed">Language changed!</string>
 
+
+    <string name="Monday">Monday</string>
+    <string name="Tuesday">Tuesday</string>
+    <string name="Wednesday">Wednesday</string>
+    <string name="Thursday">Thursday</string>
+    <string name="Friday">Friday</string>
+    <string name="Saturday">Saturday</string>
+    <string name="Sunday">Sunday</string>
+
+
+    <string name="clear">clear</string>
+    <string name="drizzle">drizzle</string>
+    <string name="rain">rain</string>
+    <string name="thunderstorm">thunderstorm</string>
+    <string name="snow">snow</string>
+
 </resources>
