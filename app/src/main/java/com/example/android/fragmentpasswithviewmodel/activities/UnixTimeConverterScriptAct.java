@@ -29,9 +29,7 @@ public class UnixTimeConverterScriptAct extends AppCompatActivity {
 
     public void unixConvert(View view) {
         SimpleDateFormat sdf = new SimpleDateFormat("EEEE");
-//        Date dateFormat = new java.util.Date(unixTimeUnit.getText().toString());
         Date dateFormat = new java.util.Date(Long.parseLong(unixTimeUnit.getText().toString())*1000);
-//        Log.d(TAG, String.valueOf(dateFormat));
         String weekday = sdf.format(dateFormat);
         Log.d(TAG, String.valueOf(weekday));
 

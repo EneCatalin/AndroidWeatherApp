@@ -1,6 +1,7 @@
 package com.example.android.fragmentpasswithviewmodel.adapter.week;
 
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 
 import com.example.android.fragmentpasswithviewmodel.R;
 import com.example.android.fragmentpasswithviewmodel.model.week.WeatherList;
+import com.example.android.fragmentpasswithviewmodel.utils.UnixConverterUtil;
 
 import java.util.ArrayList;
 
@@ -32,7 +34,15 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.WeatherV
     @Override
     public void onBindViewHolder(WeatherViewHolder holder, int position) {
 
+//        holder.mDayOfTheWeek.setText(UnixConverterUtil(we));
 
+        holder.mDayOfTheWeek.setText( String.valueOf(new UnixConverterUtil().timeConverter(
+                String.valueOf(weatherList.get(position).getDt())
+        )));
+//        Log.d("WeatherAdapter", ( String.valueOf(new UnixConverterUtil().timeConverter(
+//                String.valueOf(weatherList.get(position).getDeg())
+//        ))));
+        Log.d("WeatherAdapter", String.valueOf(weatherList.get(position).getDt()));
         holder.mWeatherDescr.setText(weatherList.get(position).getWeather().get(0).getMain());
         holder.mDayWeather.setText(Integer.toString(weatherList.get(position).getTemp().getDay()));
         holder.mNightWeather.setText(Integer.toString(weatherList.get(position).getTemp().getNight()));
@@ -53,9 +63,11 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.WeatherV
         TextView mDayWeather;
         TextView mNightWeather;
         ImageView mWeatherImage;
+        TextView mDayOfTheWeek;
 
         WeatherViewHolder(View itemView) {
             super(itemView);
+            mDayOfTheWeek=(TextView) itemView.findViewById(R.id.Day_of_the_week);
             mWeatherDescr = (TextView) itemView.findViewById(R.id.main_weather_description_of_weekday);
             mDayWeather = (TextView) itemView.findViewById(R.id.day_temp);
             mNightWeather = (TextView) itemView.findViewById(R.id.night_temp);
