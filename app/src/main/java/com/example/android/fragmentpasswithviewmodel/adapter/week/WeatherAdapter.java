@@ -1,7 +1,6 @@
 package com.example.android.fragmentpasswithviewmodel.adapter.week;
 
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +9,7 @@ import android.widget.TextView;
 
 import com.example.android.fragmentpasswithviewmodel.R;
 import com.example.android.fragmentpasswithviewmodel.model.week.WeatherList;
+import com.example.android.fragmentpasswithviewmodel.utils.DayNameConverter;
 import com.example.android.fragmentpasswithviewmodel.utils.UnixConverterUtil;
 
 import java.util.ArrayList;
@@ -36,13 +36,21 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.WeatherV
 
 //        holder.mDayOfTheWeek.setText(UnixConverterUtil(we));
 
-        holder.mDayOfTheWeek.setText( String.valueOf(new UnixConverterUtil().timeConverter(
-                String.valueOf(weatherList.get(position).getDt())
-        )));
-//        Log.d("WeatherAdapter", ( String.valueOf(new UnixConverterUtil().timeConverter(
-//                String.valueOf(weatherList.get(position).getDeg())
-//        ))));
-        Log.d("WeatherAdapter", String.valueOf(weatherList.get(position).getDt()));
+
+        if(position == 0){
+            holder.mDayOfTheWeek.setText(R.string.Today);
+        }else {
+            holder.mDayOfTheWeek.setText(new DayNameConverter().dayConverter((String.valueOf
+                            (new UnixConverterUtil().timeConverter(
+                    String.valueOf(weatherList.get(position).getDt()))))
+                    ,holder.mDayOfTheWeek.getContext()));
+        }
+//         holder.mDayOfTheWeek.getContext();
+//        holder.mDayOfTheWeek.setText(String.valueOf(new UnixConverterUtil().timeConverter(
+//                String.valueOf(weatherList.get(position).getDt())
+//
+
+
         holder.mWeatherDescr.setText(weatherList.get(position).getWeather().get(0).getMain());
         holder.mDayWeather.setText(Integer.toString(weatherList.get(position).getTemp().getDay()));
         holder.mNightWeather.setText(Integer.toString(weatherList.get(position).getTemp().getNight()));

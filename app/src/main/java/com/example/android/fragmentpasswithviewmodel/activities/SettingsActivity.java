@@ -7,6 +7,7 @@ import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
 import com.example.android.fragmentpasswithviewmodel.R;
@@ -64,6 +65,13 @@ public class SettingsActivity extends AppCompatActivity {
                         .getDefaultSharedPreferences(preference.getContext())
                         .getString(preference.getKey(), ""));
     }
+
+    public void select_celius(View view) {
+    }
+
+    public void select_fahrenheit(View view) {
+    }
+
     /**SO SO SO very pissed I had to add this (also had a beer and some wine so yeah
      * NEED THIS or we don't get an actionBar. Why ? Because there's no god, that's why
      *later edit, our lord and Saviour google sayeth

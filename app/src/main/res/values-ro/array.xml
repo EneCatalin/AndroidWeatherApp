@@ -4,12 +4,12 @@
         <item>Engleză</item>
         <item>Română</item>
         <item>Moldovenească</item>
-        <item>Franceză</item>
+        <item>Croată</item>
     </string-array>
     <string-array name="entries_values_array">
         <item>English</item>
         <item>Romanian</item>
         <item>Moldavian</item>
-        <item>French</item>
+        <item>Croatian</item>
     </string-array>
 </resources>

@@ -8,13 +8,7 @@ import java.util.Date;
 public class UnixConverterUtil {
 
 
-//    Integer unixTime;
     SimpleDateFormat sdf = new SimpleDateFormat("EEEE");
-
-
-//    public UnixConverterUtil(Integer unixTime) {
-//        this.unixTime = unixTime;
-//    }
 
     public String timeConverter(String unixTime) {
         Date dateFormat = new java.util.Date(Long.parseLong(unixTime)*1000);

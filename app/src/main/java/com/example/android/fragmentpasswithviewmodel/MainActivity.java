@@ -32,8 +32,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        PreferenceManager.getDefaultSharedPreferences(this).getString("Lang_list_pref", "English");
-//        Log.d(TAG, "Locale:"+));
+//        PreferenceManager.getDefaultSharedPreferences(this).getString("Lang_list_pref", "English");
 
         /***using this little fella in the location stuff*/
         SharedPreferences settings=PreferenceManager.getDefaultSharedPreferences(this);

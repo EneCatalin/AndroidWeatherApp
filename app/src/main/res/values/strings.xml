@@ -3,10 +3,8 @@
 <resources>
 
     <string name="app_name">GibWeather</string>
-
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-
 
     <string name="instructions">Add a city to keep track of</string>
     <string name="input_hint">City</string>
@@ -52,5 +50,9 @@
     <string name="rain">rain</string>
     <string name="thunderstorm">thunderstorm</string>
     <string name="snow">snow</string>
+    <string name="Today">Today</string>
+
+
+    <string name="add_city">ADD CIty</string>
 
 </resources>
