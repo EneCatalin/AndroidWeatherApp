@@ -37,7 +37,8 @@ public class MainActivity extends AppCompatActivity {
         /***using this little fella in the location stuff*/
         SharedPreferences settings=PreferenceManager.getDefaultSharedPreferences(this);
 
-        if (settings.getString("Lang_list_pref",null).equals("Romanian")) {
+
+        if (settings.getString("Lang_list_pref","English").equals("Romanian")) {
             Log.d(TAG, "ENTERED1");
 
             Locale locale = new Locale("ro");
@@ -48,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
                     getBaseContext().getResources().getDisplayMetrics());
             settings.edit().putString("Lang_list_pref", "ro").commit();
         }
-        if (settings.getString("Lang_list_pref",null).equals("English")) {
+        if (settings.getString("Lang_list_pref","English").equals("English")) {
             Log.d(TAG, "ENTERED2");
             Locale locale = new Locale("en_US");
             Locale.setDefault(locale);
@@ -58,7 +59,15 @@ public class MainActivity extends AppCompatActivity {
                     getBaseContext().getResources().getDisplayMetrics());
             settings.edit().putString("Lang_list_pref", "en").commit();
         }
-        /***Setting the default preferences
+        if (settings.getString("Lang_list_pref","English").equals("Croatian")) {
+            Locale locale = new Locale("hr");
+            Locale.setDefault(locale);
+            Configuration config = new Configuration();
+            config.locale = locale;
+            getBaseContext().getResources().updateConfiguration(config,
+                    getBaseContext().getResources().getDisplayMetrics());
+            settings.edit().putString("Lang_list_pref", "hr").commit();
+        }        /***Setting the default preferences
          * About the third argument:
          * A boolean indicating whether the default values should be set more than once. When false, the system
          * the default values only if this method has never been called in the past. As long as you set this
