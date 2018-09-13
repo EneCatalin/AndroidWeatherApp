@@ -3,11 +3,13 @@ package com.example.android.fragmentpasswithviewmodel;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.graphics.Point;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.preference.PreferenceManager;
 import android.util.Log;
+import android.view.Display;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toolbar;
@@ -31,6 +33,20 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+// display size in pixels
+        Display display = getWindowManager().getDefaultDisplay();
+        String displayName = null;  // minSdkVersion=17+
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            displayName = display.getName();
+        }
+        Log.i("GGGGG", "displayName  = " + displayName);
+
+        Point size = new Point();
+        display.getSize(size);
+        int width = size.x;
+        int height = size.y;
+        Log.i("GGGGG", "width        = " + width);
+        Log.i("GGGGG", "height       = " + height);
 
 //        PreferenceManager.getDefaultSharedPreferences(this).getString("Lang_list_pref", "English");
 
