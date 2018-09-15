@@ -45,12 +45,7 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.WeatherV
                     String.valueOf(weatherList.get(position).getDt()))))
                     ,holder.mDayOfTheWeek.getContext()));
         }
-//         holder.mDayOfTheWeek.getContext();
-//        holder.mDayOfTheWeek.setText(String.valueOf(new UnixConverterUtil().timeConverter(
-//                String.valueOf(weatherList.get(position).getDt())
-//
-
-
+        
         holder.mWeatherDescr.setText(weatherList.get(position).getWeather().get(0).getMain());
         holder.mDayWeather.setText(Integer.toString(weatherList.get(position).getTemp().getDay()));
         holder.mNightWeather.setText(Integer.toString(weatherList.get(position).getTemp().getNight()));

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="entries_array">
+        <item>Engleski</item>
+        <item>Rumunjski</item>
+        <item>Moldavski</item>
+        <item>Hrvatski</item>
+    </string-array>
+    <string-array name="entries_values_array">
+        <item>English</item>
+        <item>Romanian</item>
+        <item>Moldavian</item>
+        <item>Croatian</item>
+    </string-array>
+</resources>

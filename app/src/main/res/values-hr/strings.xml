@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+
+<resources>
+
+    <string name="app_name">GibWeather</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string name="instructions">Dodaj grad čiju prognozu želiš pratiti</string>
+    <string name="input_hint">Grad</string>
+    <string name="button_text">Dodaj grad</string>
+    <string name="AddCity">Dodaj</string>
+    <string name="dots">…</string>
+    <string name="instructions2">Provjeri vrijeme u:</string>
+    <string name="Check">Provjeri</string>
+    <string name="city_not_found">Grad nije nađen</string>
+    <string name="enter_a_city">Molimo, unesite grad!</string>
+    <string name="SevenDayCheck">Tjedna prognoza</string>
+    <string name="city_not_found_text">Ime grada nije nađeno</string>
+    <string name="minus">-</string>
+    <string name="ok">OK</string>
+    <string name="hint_word">unesite ime grada</string>
+    <string name="save">sačuvaj</string>
+    <string name="empty_not_saved">grad nije unesen</string>
+    <string name="settings">Postavke</string>
+    <string name="no_weather_found">PROGNOZA NIJE NAĐENA</string>
+    <string name="FAHRENHEIT">°F</string>
+    <string name="CELSIUS">°C</string>
+    <string name="units">JEDINICE</string>
+    <string name="fahrenheit">Fahrenheit</string>
+    <string name="celsius">Celsius</string>
+    <string name="select_lang">Odaberi jezik</string>
+    <string name="language">Jezik</string>
+    <string name="notifications">Obavijesti</string>
+    <string name="dark_theme_string">Tamna tema</string>
+    <string name="language_changed">Jezik je promijenjen!</string>
+
+
+    <string name="Monday">ponedjeljak</string>
+    <string name="Tuesday">utorak</string>
+    <string name="Wednesday">srijeda</string>
+    <string name="Thursday">četvrtak</string>
+    <string name="Friday">petak</string>
+    <string name="Saturday">subota</string>
+    <string name="Sunday">nedjelja</string>
+
+
+    <string name="clear">očisti</string>
+    <string name="drizzle">lagana kiša</string>
+    <string name="rain">kiša</string>
+    <string name="thunderstorm">olujno nevrijeme</string>
+    <string name="snow">snijeg</string>
+    <string name="Today">Danas</string>
+
+
+    <string name="add_city">Dodaj</string>
+
+</resources>
