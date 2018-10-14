@@ -36,7 +36,6 @@ public class SettingsActivity extends AppCompatActivity {
         public boolean onPreferenceChange(android.preference.Preference preference, Object value) {
             String stringValue = value.toString();
 
-            Log.d("CECECECE", "onPreferenceChange: ");
             if (preference instanceof ListPreference) {
                 // For list preferences, look up the correct display value in
                 // the preference's 'entries' list.
