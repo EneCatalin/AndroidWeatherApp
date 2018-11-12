@@ -16,15 +16,15 @@ public class DayNameConverter {
         }else if(day.equals("Tuesday")){
             day=context.getResources().getString((R.string.Tuesday));
         }else if(day.equals("Wednesday")){
-            day=context.getResources().getString((R.string.Tuesday));
+            day=context.getResources().getString((R.string.Wednesday));
         }else if(day.equals("Thursday")){
-            day=context.getResources().getString((R.string.Tuesday));
+            day=context.getResources().getString((R.string.Thursday));
         }else if(day.equals("Friday")){
-            day=context.getResources().getString((R.string.Tuesday));
+            day=context.getResources().getString((R.string.Friday));
         }else if(day.equals("Saturday")){
-            day=context.getResources().getString((R.string.Tuesday));
+            day=context.getResources().getString((R.string.Saturday));
         }else if(day.equals("Sunday")){
-            day=context.getResources().getString((R.string.Tuesday));
+            day=context.getResources().getString((R.string.Sunday));
         }
 
         return day;
